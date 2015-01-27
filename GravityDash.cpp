@@ -408,146 +408,150 @@ void ModSingola(string scelta)
 }
 
 
-
+// INFORMAZIONI SUL GIOCO //
 void Info()
 {
-     gotoxy(30,1);
-     setcolor(YELLOW,BLACK);
-     cout<<"<<GRAVITY DASH>>";
-     gotoxy(2,5);
-     setcolor(LIGHTRED,BLACK);
-     cout<<"COMANDI\n";
-     setcolor(LIGHTGRAY,BLACK);
-     cout<<"D = movimento a destra\n";
-     cout<<"A = movimento a sinistra\n";
-     cout<<"--> = movimento a destra\n";
-     cout<<"<-- = movimento a sinistra\n";
-     gotoxy(2,12);
-     setcolor(LIGHTRED,BLACK);
-     cout<<"SCOPO DEL GIOCO\n";
-     setcolor(LIGHTGRAY,BLACK);
-     cout<<"Non devi farti beccare dai meteoriti che scendono,\n";
-     cout<<"se vieni colpito perderai automaticamente e' il tuo\n";
-     cout<<"punteggio sara' il tempo che sei rimasto in vita.\n";
-     gotoxy(28,18);
-     setcolor(LIGHTRED,BLACK);
-     cout<<"CREDITI\n";
-     setcolor(LIGHTGRAY,BLACK);
-     gotoxy(24,20);
-     setcolor(LIGHTGREEN,BLACK);
-     cout<<"Civettini Marco\n";
-     setcolor(LIGHTGRAY,BLACK);
-      gotoxy(1,25);
-     setcolor(YELLOW,BLACK);
-     cout<<"PREMERE UN TASTO PER TORNARE AL MENU'";
-     gotoxy(1,24);
-     setcolor(BLACK,BLACK);
-     system("Pause");
-     setcolor(LIGHTGRAY,BLACK);
-     gotoxy(1,25);
-     system("cls");
-     main();
-     return;
-     }
+	// piccolo manuale di gioco sulle regole basi //
+	gotoxy(30,1);
+     	setcolor(YELLOW,BLACK);
+	cout<<"<<GRAVITY DASH>>";
+	gotoxy(2,5);
+	setcolor(LIGHTRED,BLACK);
+	cout<<"COMANDI\n";
+	setcolor(LIGHTGRAY,BLACK);
+	cout<<"D = movimento a destra\n";
+	cout<<"A = movimento a sinistra\n";
+	cout<<"--> = movimento a destra\n";
+	cout<<"<-- = movimento a sinistra\n";
+	gotoxy(2,12);
+     	setcolor(LIGHTRED,BLACK);
+     	cout<<"SCOPO DEL GIOCO\n";
+     	setcolor(LIGHTGRAY,BLACK);
+     	cout<<"Non devi farti beccare dai meteoriti che scendono,\n";
+     	cout<<"se vieni colpito perderai automaticamente e' il tuo\n";
+     	cout<<"punteggio sara' il tempo che sei rimasto in vita.\n";
+     	gotoxy(28,18);
+     	setcolor(LIGHTRED,BLACK);
+     	cout<<"CREDITI\n";
+     	setcolor(LIGHTGRAY,BLACK);
+     	gotoxy(24,20);
+     	setcolor(LIGHTGREEN,BLACK);
+     	cout<<"Civettini Marco\n";
+     	setcolor(LIGHTGRAY,BLACK);
+      	gotoxy(1,25);
+     	setcolor(YELLOW,BLACK);
+     	cout<<"PREMERE UN TASTO PER TORNARE AL MENU'";
+     	gotoxy(1,24);
+     	setcolor(BLACK,BLACK);
+     	system("Pause");
+     	setcolor(LIGHTGRAY,BLACK);
+     	gotoxy(1,25);
+     	system("cls");
+     	main();
+     	return;
+	
+}
 
 
-
+// SCELTA DELLA MODALITA' SINGLEPLAYER //
 void SinglePlayer(string scelta)
 {
-     int start;
-     char rew;
+	int start;
+     	char rew;
 
-do{
-     start=5;
-     system("cls");
+	do
+	{
+		start=5;
+     		system("cls");
      
-do{
-     
-    gotoxy(35,3);
-    setcolor(YELLOW,BLACK);
-    cout<<"<<SINGLE PLAYER>>"; 
-    gotoxy(16,8); 
-    setcolor(LIGHTBLUE,BLACK);
-    cout<<"Inserisci il numero della difficolta' di gioco\n\n";
-    gotoxy(18,10);
-    setcolor(LIGHTGREEN,BLACK);
-    cout<<"1 --> Facile\n\n";
-    gotoxy(18,12);
-    cout<<"2 --> Normale\n\n";
-    gotoxy(18,14);
-    cout<<"3 --> Difficile\n\n";
-    gotoxy(18,16);
-    cout<<"4 --> Survival\n\n";
-    gotoxy(18,18);
-    cout<<"0 --> Torna alla home\n\n";
-    setcolor(LIGHTGRAY,BLACK);
-    gotoxy(5,23);
-    cout<<"SCELTA = ";
-    setcolor(LIGHTRED,BLACK);
-    cin>>scelta;
-    setcolor(LIGHTGRAY,BLACK);
-    system("cls");
-    
-                  
-                  
-    if(scelta=="0"){
-                  main(); ;
-                  }
+		do
+		{
+			gotoxy(35,3);
+    			setcolor(YELLOW,BLACK);
+    			cout<<"<<SINGLE PLAYER>>"; 
+		    	gotoxy(16,8); 
+		    	setcolor(LIGHTBLUE,BLACK);
+		    	cout<<"Inserisci il numero della difficolta' di gioco\n\n";
+		    	gotoxy(18,10);
+		    	setcolor(LIGHTGREEN,BLACK);
+		    	cout<<"1 --> Facile\n\n";
+		    	gotoxy(18,12);
+		    	cout<<"2 --> Normale\n\n";
+		    	gotoxy(18,14);
+		    	cout<<"3 --> Difficile\n\n";
+		    	gotoxy(18,16);
+		    	cout<<"4 --> Survival\n\n";
+		    	gotoxy(18,18);
+		    	cout<<"0 --> Torna alla home\n\n";
+		    	setcolor(LIGHTGRAY,BLACK);
+		    	gotoxy(5,23);
+		    	cout<<"SCELTA = ";
+		    	setcolor(LIGHTRED,BLACK);
+		    	cin>>scelta;
+		    	setcolor(LIGHTGRAY,BLACK);
+		    	system("cls");
+		    	
+		    	if(scelta=="0")
+		    	{
+                  		main(); ;
+                  	}
+                  	
+                  	system("cls");
+    		
+		}while((scelta!="1")&&(scelta!="2")&&(scelta!="3")&&(scelta!="4")&&(scelta!="0"));
 
-    system("cls");
-    }while((scelta!="1")&&(scelta!="2")&&(scelta!="3")&&(scelta!="4")&&(scelta!="0"));
-////////CONTO ALLA ROVESCIA////////
-VisualizzaCampo();
-setcolor(LIGHTGREEN,BLACK);
-gotoxy(6,8);
-    cout<<"START TRA";
-setcolor(LIGHTRED,BLACK);
-gotoxy(42,4);
-cout<<"Comandi per MANCINI";
-setcolor(YELLOW,BLACK);
-gotoxy(42,6);
-cout<<"D = Muovi a destra";
-gotoxy(42,8);
-cout<<"A = Muovi a sinistra";
-gotoxy(42,11);
-setcolor(LIGHTRED,BLACK);
-cout<<"Comandi per DESTRORSI";
-setcolor(YELLOW,BLACK);
-gotoxy(42,13);
-cout<<"---> = Muovi a destra";
-gotoxy(42,15);
-cout<<"<--- = Muovi a sinistra";
-setcolor(LIGHTGRAY,BLACK);
+		////////CONTO ALLA ROVESCIA////////
+		VisualizzaCampo();
+		setcolor(LIGHTGREEN,BLACK);
+		gotoxy(6,8);
+    		cout<<"START TRA";
+		setcolor(LIGHTRED,BLACK);
+		gotoxy(42,4);
+		cout<<"Comandi per MANCINI";
+		setcolor(YELLOW,BLACK);
+		gotoxy(42,6);
+		cout<<"D = Muovi a destra";
+		gotoxy(42,8);
+		cout<<"A = Muovi a sinistra";
+		gotoxy(42,11);
+		setcolor(LIGHTRED,BLACK);
+		cout<<"Comandi per DESTRORSI";
+		setcolor(YELLOW,BLACK);
+		gotoxy(42,13);
+		cout<<"---> = Muovi a destra";
+		gotoxy(42,15);
+		cout<<"<--- = Muovi a sinistra";
+		setcolor(LIGHTGRAY,BLACK);
+	
+		do
+		{
+			gotoxy(16,8);
+    			setcolor(YELLOW,BLACK);
+    			cout<<start;
+    			Sleep(1000);
+    			start--;
+    		}while(start!=0);
+	/////////////////////////
 
-    do{
-    
-    
-    gotoxy(16,8);
-    setcolor(YELLOW,BLACK);
-    cout<<start;
-    Sleep(1000);
-    start--;
-    }while(start!=0);
-/////////////////////////
-
-    setcolor(LIGHTGRAY,BLACK);
-    system("cls");
-    srand(time(NULL));   
-    //FUNZIONI//
-    VisualizzaCampo();
-    ModSingola(scelta);
-    //       //
-    gotoxy(1,23);
-    setcolor(LIGHTGREEN,BLACK);
-     cout<<"vuoi riprovare?(s/n)";
-     setcolor(LIGHTGRAY,BLACK);
-     cin>>rew;
-     system("cls");
-     
- }while((rew=='s')||(rew=='S'));
- 
-return;     
-     }
+    		setcolor(LIGHTGRAY,BLACK);
+    		system("cls");
+    		srand(time(NULL));   
+    		//FUNZIONI//
+    		VisualizzaCampo();
+    		ModSingola(scelta);
+    		//       //
+    		gotoxy(1,23);
+    		setcolor(LIGHTGREEN,BLACK);
+		cout<<"vuoi riprovare?(s/n)";
+     		setcolor(LIGHTGRAY,BLACK);
+     		cin>>rew;
+     		system("cls");
+		
+	}while((rew=='s')||(rew=='S'));
+	
+	return;
+	
+}
      
  
  
