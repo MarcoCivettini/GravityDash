@@ -561,340 +561,359 @@ void SinglePlayer(string scelta)
  
  
  
- void ModMultipla(string selezione){
-//DICHIARAZIONI VARIABILI//
-int h = 0 ,i = 11 ,j = 15 ,r=51,k=15,cont = 0 ,c,c1,pos = (rand()%19)+2 ,z = 2,x,v=40,time,velocita=0;
-char tasto;
+ void ModMultipla(string selezione)
+{
+	int h = 0 ,i = 11 ,j = 15 ,r=51,k=15,cont = 0 ,c,c1,pos = (rand()%19)+2 ,z = 2,x,v=40,time,velocita=0;
+	char tasto;
 
                                   //Stampa la prima volta la navicella        
-     gotoxy(i,j);
-     cout<<nav;
-     gotoxy(r,k);
-     cout<<nav1;
+     	gotoxy(i,j);
+     	cout<<nav;
+     	gotoxy(r,k);
+     	cout<<nav1;
 
-gotoxy(28,4);
-setcolor(YELLOW,BLACK);
-cout<<"TIMER";
-setcolor(LIGHTBLUE,BLACK);
-gotoxy(7,19);
-cout<<"Giocatore 1";
-setcolor(YELLOW,BLACK);
-gotoxy(47,19);
-cout<<"Giocatore 2";
-setcolor(LIGHTGRAY,BLACK);
-
-
-                                    
-                      
-do{                                 //Quando se h=1 il giocatore ha perso 
-//CREAZIONE DEL METEORITE//
-if(z==2){                                   //riga del meteorite   
-//METEORITE 1//                                  
-               if(i<11){
-                            
-               c=(i) + (rand()%((i+3)-i+1));    //colonna a caso del meteorite               
-               }  
-               if(i>=11){
-         
-               c=(i-3) + (rand()%(i-(i-3)+1)); //colonna a caso del meteorite
-               }
-//METEORITE 2//
-               if(r<31){
-                            
-               c1=(r) + (rand()%((r+3)-r+1));    //colonna a caso del meteorite               
-               }
+	gotoxy(28,4);
+	setcolor(YELLOW,BLACK);
+	cout<<"TIMER";
+	setcolor(LIGHTBLUE,BLACK);
+	gotoxy(7,19);
+	cout<<"Giocatore 1";
+	setcolor(YELLOW,BLACK);
+	gotoxy(47,19);
+	cout<<"Giocatore 2";
+	setcolor(LIGHTGRAY,BLACK);
+	
+	do
+	{
+		if(z==2)
+		{
+			if(i<11)
+			{
+				c=(i) + (rand()%((i+3)-i+1));    //colonna a caso del meteorite               
+               		}  
                
-               if(r>=31){
-         
-               c1=(r-3) + (rand()%(r-(r-3)+1)); //colonna a caso del meteorite
-               }
+               		if(i>=11)
+               		{
+         			c=(i-3) + (rand()%(i-(i-3)+1)); //colonna a caso del meteorite
+               		}
                
-               
-               
-               
-               
-               }
-               gotoxy(c,z);
-               setcolor(LIGHTGREEN,BLACK);
-               cout<<met;
-               setcolor(LIGHTGRAY,BLACK);
-               //STAMPO METEORITE 2//
-               gotoxy(c1,z);
-               setcolor(LIGHTGREEN,BLACK);
-               cout<<met1;
-               setcolor(LIGHTGRAY,BLACK);
-               if(selezione=="1"){
-               Sleep(40); //tempo di caduta del meteorite
-               cont++;     //Contatore del punteggio
-               }       
-                          
-               
-               
-               if(selezione=="2"){
-               Sleep(33);
-               cont++;  
-               }
-               
-               if(selezione=="3"){
-               Sleep(25);
-               cont++;  
-               }
-               
-               if(selezione=="4"){
-               Sleep(v);
-               cont++;  
-               }
-                             
-               
-               
-               gotoxy(c,z);
-               cout<<" ";
-               gotoxy(c1,z);
-               cout<<" ";
-               z++;
-               
-               if(z==16){         //Quando meteorite arriva in fondo scompare e si crea un altro meteorite
-                         gotoxy(c,z);
-                         cout<<" ";
-                         gotoxy(c1,z);
-                         cout<<" ";
-                           z=2;
-                         
-                           }
- 
-if(kbhit()){
-
-  
-x=getch();
-
-
-if(x==0xE0)
-{
-            x=getch();
+	               if(r<31)
+	               {
+	               		c1=(r) + (rand()%((r+3)-r+1));    //colonna a caso del meteorite               
+	               }
+	               
+	               if(r>=31)
+	               {
+	               c1=(r-3) + (rand()%(r-(r-3)+1)); //colonna a caso del meteorite
+	               }
             
-            
-              if(x==75){        
-               gotoxy(r,k);
-               cout<<" ";
-               r--;              //Sposta a sinistra
-               gotoxy(r,k);
-               cout<<nav;
-               }
-               
-               if(x==77){
-               gotoxy(r,k);
-               cout<<" ";
-               r++;              //Sposta a destra
-               gotoxy(r,k);
-               cout<<nav;
-               }
-               
-               
-}
-if(x==100){
-               gotoxy(i,j);
-               cout<<" ";
-               i++;              //Sposta a destra
-               gotoxy(i,j);
-               cout<<nav;
-               }
-               if(x==97){        
-               gotoxy(i,j);
-               cout<<" ";
-               i--;              //Sposta a sinistra
-               gotoxy(i,j);
-               cout<<nav;
-               }  
-}
-
-
-if(i==21){                       //Se becca il bordo hai perso
-h=1;
-gotoxy(19,21);
-cout<<"il";
-setcolor(LIGHTGREEN,BLACK);
-cout<<" giocatore 2 ";
-setcolor(LIGHTGRAY,BLACK);
-cout<<"ha vinto";
-gotoxy(7,9);
-setcolor(LIGHTRED,BLACK);
-cout<<"hai Perso";
-gotoxy(47,9);
-setcolor(LIGHTGREEN,BLACK);
-cout<<"hai Vinto";
-setcolor(LIGHTGRAY,BLACK);
-        }
-
-if(i==1){
-h=1;
-gotoxy(19,21);
-cout<<"il";
-setcolor(LIGHTGREEN,BLACK);
-cout<<" giocatore 2 ";
-setcolor(LIGHTGRAY,BLACK);
-cout<<"ha vinto";
-gotoxy(7,9);
-setcolor(LIGHTRED,BLACK);
-cout<<"hai Perso";
-gotoxy(47,9);
-setcolor(LIGHTGREEN,BLACK);
-cout<<"hai Vinto";
-setcolor(LIGHTGRAY,BLACK);                            //Se becca il bordo hai perso
-        }
-        
-if((i==c)&&(j==z)){
-                  h=1;
-gotoxy(19,21);
-cout<<"il";
-setcolor(LIGHTGREEN,BLACK);
-cout<<" giocatore 2 ";
-setcolor(LIGHTGRAY,BLACK);
-cout<<"ha vinto";
-gotoxy(7,9);
-setcolor(LIGHTRED,BLACK);
-cout<<"hai Perso";
-gotoxy(47,9);
-setcolor(LIGHTGREEN,BLACK);
-cout<<"hai Vinto";
-setcolor(LIGHTGRAY,BLACK);
-}
-
-//CONTROLLI SECONDA NAVICELLA//
-if(r==61){                       //Se becca il bordo hai perso
-h=1;
-gotoxy(19,21);
-cout<<"il";
-setcolor(LIGHTGREEN,BLACK);
-cout<<" giocatore 1 ";
-setcolor(LIGHTGRAY,BLACK);
-cout<<"ha vinto";
-gotoxy(47,9);
-setcolor(LIGHTRED,BLACK);
-cout<<"hai Perso";
-gotoxy(7,9);
-setcolor(LIGHTGREEN,BLACK);
-cout<<"hai Vinto";
-setcolor(LIGHTGRAY,BLACK);
-        }
-
-if(r==41){
-h=1;
-gotoxy(19,21);
-cout<<"il";
-setcolor(LIGHTGREEN,BLACK);
-cout<<" giocatore 1 ";
-setcolor(LIGHTGRAY,BLACK);
-cout<<"ha vinto";
-gotoxy(47,9);
-setcolor(LIGHTRED,BLACK);
-cout<<"hai Perso";
-gotoxy(7,9);
-setcolor(LIGHTGREEN,BLACK);
-cout<<"hai Vinto";
-setcolor(LIGHTGRAY,BLACK);                           //Se becca il bordo hai perso
-        }
-        
-if((r==c1)&&(k==z)){
-
-                  h=1;          
-gotoxy(19,21);
-cout<<"il";
-setcolor(LIGHTGREEN,BLACK);
-cout<<" giocatore 1 ";
-setcolor(LIGHTGRAY,BLACK);
-cout<<"ha vinto";
-gotoxy(47,9);
-setcolor(LIGHTRED,BLACK);
-cout<<"hai Perso";
-gotoxy(7,9);
-setcolor(LIGHTGREEN,BLACK);
-cout<<"hai Vinto";
-setcolor(LIGHTGRAY,BLACK);
-}
+		}
+	               
+	        gotoxy(c,z);
+	        setcolor(LIGHTGREEN,BLACK);
+	        cout<<met;
+	        setcolor(LIGHTGRAY,BLACK);
+	        //STAMPO METEORITE 2//
+	        gotoxy(c1,z);
+	        setcolor(LIGHTGREEN,BLACK);
+	        cout<<met1;
+	        setcolor(LIGHTGRAY,BLACK);
+	        if(selezione=="1")
+	        {
+	        	Sleep(40); //tempo di caduta del meteorite
+	               	cont++;     //Contatore del punteggio
+	        }       
+	                          
+	        if(selezione=="2")
+	        {
+	               Sleep(33);
+	               cont++;  
+	        }
+	               
+	        if(selezione=="3")
+	        {
+	               Sleep(25);
+	               cont++;  
+	        }
+	               
+	        if(selezione=="4")
+	        {
+	               Sleep(v);
+	               cont++;  
+	        }
+	                             
+	               
+	               
+	        gotoxy(c,z);
+	        cout<<" ";
+	        gotoxy(c1,z);
+	        cout<<" ";
+	        z++;
+	               
+	        if(z==16)
+	        {         //Quando meteorite arriva in fondo scompare e si crea un altro meteorite
+	        	gotoxy(c,z);
+	                cout<<" ";
+	                gotoxy(c1,z);
+	                cout<<" ";
+	                z=2;
+	                         
+	        }
+	        
+	        if(kbhit())
+	        {
+	        	x=getch();
+	        	
+	        	if(x==0xE0)
+	        	{
+	            		x=getch();
+	            
+	            
+	              		if(x==75)
+	              		{        
+	               			gotoxy(r,k);
+	               			cout<<" ";
+	               			r--;              //Sposta a sinistra
+	               			gotoxy(r,k);
+	               			cout<<nav;
+	               		}
+	               
+	               		if(x==77)
+	               		{
+	               			gotoxy(r,k);
+	               			cout<<" ";
+	               			r++;              //Sposta a destra
+	               			gotoxy(r,k);
+	               			cout<<nav;
+	               		}
+	               
+	               
+			}
+	
+			if(x==100)
+			{
+				gotoxy(i,j);
+	               		cout<<" ";
+	               		i++;              //Sposta a destra
+	               		gotoxy(i,j);
+	               		cout<<nav;
+	        	}
+	        
+		        if(x==97)
+	        	{        
+	               	gotoxy(i,j);
+	               	cout<<" ";
+	               	i--;              //Sposta a sinistra
+	               	gotoxy(i,j);
+	               	cout<<nav;
+	        	}
+	        	
+		}
+		
+		if(i==21)
+		{
+			h=1;
+			gotoxy(19,21);
+			cout<<"il";
+			setcolor(LIGHTGREEN,BLACK);
+			cout<<" giocatore 2 ";
+			setcolor(LIGHTGRAY,BLACK);
+			cout<<"ha vinto";
+			gotoxy(7,9);
+			setcolor(LIGHTRED,BLACK);
+			cout<<"hai Perso";
+			gotoxy(47,9);
+			setcolor(LIGHTGREEN,BLACK);
+			cout<<"hai Vinto";
+			setcolor(LIGHTGRAY,BLACK);
+	        }
+	
+		if(i==1)
+		{
+		h=1;
+		gotoxy(19,21);
+		cout<<"il";
+		setcolor(LIGHTGREEN,BLACK);
+		cout<<" giocatore 2 ";
+		setcolor(LIGHTGRAY,BLACK);
+		cout<<"ha vinto";
+		gotoxy(7,9);
+		setcolor(LIGHTRED,BLACK);
+		cout<<"hai Perso";
+		gotoxy(47,9);
+		setcolor(LIGHTGREEN,BLACK);
+		cout<<"hai Vinto";
+		setcolor(LIGHTGRAY,BLACK);                            //Se becca il bordo hai perso
+	        }
+	        
+		if((i==c)&&(j==z))
+		{
+			h=1;
+			gotoxy(19,21);
+			cout<<"il";
+			setcolor(LIGHTGREEN,BLACK);
+			cout<<" giocatore 2 ";
+			setcolor(LIGHTGRAY,BLACK);
+			cout<<"ha vinto";
+			gotoxy(7,9);
+			setcolor(LIGHTRED,BLACK);
+			cout<<"hai Perso";
+			gotoxy(47,9);
+			setcolor(LIGHTGREEN,BLACK);
+			cout<<"hai Vinto";
+			setcolor(LIGHTGRAY,BLACK);
+		}
+	
+	//CONTROLLI SECONDA NAVICELLA//
+		if(r==61)
+		{                       //Se becca il bordo hai perso
+			h=1;
+			gotoxy(19,21);
+			cout<<"il";
+			setcolor(LIGHTGREEN,BLACK);
+			cout<<" giocatore 1 ";
+			setcolor(LIGHTGRAY,BLACK);
+			cout<<"ha vinto";
+			gotoxy(47,9);
+			setcolor(LIGHTRED,BLACK);
+			cout<<"hai Perso";
+			gotoxy(7,9);
+			setcolor(LIGHTGREEN,BLACK);
+			cout<<"hai Vinto";
+			setcolor(LIGHTGRAY,BLACK);
+	        }
+	
+		if(r==41)
+		{
+			h=1;
+			gotoxy(19,21);
+			cout<<"il";
+			setcolor(LIGHTGREEN,BLACK);
+			cout<<" giocatore 1 ";
+			setcolor(LIGHTGRAY,BLACK);
+			cout<<"ha vinto";
+			gotoxy(47,9);
+			setcolor(LIGHTRED,BLACK);
+			cout<<"hai Perso";
+			gotoxy(7,9);
+			setcolor(LIGHTGREEN,BLACK);
+			cout<<"hai Vinto";
+			setcolor(LIGHTGRAY,BLACK);                           //Se becca il bordo hai perso
+	        }
+	        
+		if((r==c1)&&(k==z))
+		{
+	
+	                h=1;          
+			gotoxy(19,21);
+			cout<<"il";
+			setcolor(LIGHTGREEN,BLACK);
+			cout<<" giocatore 1 ";
+			setcolor(LIGHTGRAY,BLACK);
+			cout<<"ha vinto";
+			gotoxy(47,9);
+			setcolor(LIGHTRED,BLACK);
+			cout<<"hai Perso";
+			gotoxy(7,9);
+			setcolor(LIGHTGREEN,BLACK);
+			cout<<"hai Vinto";
+			setcolor(LIGHTGRAY,BLACK);
+		}
 
 
 //TIMER//
-if(selezione=="1"){
-if(cont%25>=1){
-              gotoxy(30,9);
-              cout<<" ";
-              gotoxy(31,9);
-              cout<<" ";
-              gotoxy(32,9);
-              cout<<" ";
-              gotoxy(30,9);
-              setcolor(LIGHTRED,BLACK);
-              cout<<cont/25;
-              setcolor(LIGHTGRAY,BLACK);
-              }
-              }
-
-if(selezione=="2"){
-if(cont%30>=1){
-              gotoxy(30,9);
-              cout<<" ";
-              gotoxy(31,9);
-              cout<<" ";
-              gotoxy(32,9);
-              cout<<" ";
-              gotoxy(30,9);
-              setcolor(LIGHTRED,BLACK);
-              cout<<cont/30;
-              setcolor(LIGHTGRAY,BLACK);
-              }
-              }
-
-if(selezione=="3"){
-if(cont%40>=1){
-               
-              gotoxy(30,9);
-              cout<<" ";
-              gotoxy(31,9);
-              cout<<" ";
-              gotoxy(32,9);
-              cout<<" ";
-              gotoxy(30,9);
-              setcolor(LIGHTRED,BLACK);
-              cout<<cont/40;
-              setcolor(LIGHTGRAY,BLACK);
-              }
-              }
-
-if(selezione=="4"){
-time=1000/v;
-if(cont%time>=1){
-              gotoxy(30,5);
-              cout<<" ";
-              gotoxy(31,5);
-              cout<<" ";
-              gotoxy(32,5);
-              cout<<" ";
-              gotoxy(30,5);
-              setcolor(LIGHTRED,BLACK);
-              cout<<cont/time;
-              if((cont%100)==1){
-                                v--;
-                                velocita++;
-              gotoxy(26,9);
-              setcolor(YELLOW,BLACK);
-              cout<<"VELOCITA'";
-              gotoxy(30,10);
-              setcolor(LIGHTRED,BLACK);
-              cout<<velocita;
-                                }
-              setcolor(LIGHTGRAY,BLACK);
-              }
-              }              
-//FINE TIMER//
-
-
-
-}while(h==0);
-
-
-
-
-return;
+		if(selezione=="1")
+		{
+			if(cont%25>=1)
+			{
+	              		gotoxy(30,9);
+	              		cout<<" ";
+	              		gotoxy(31,9);
+	              		cout<<" ";
+	              		gotoxy(32,9);
+	              		cout<<" ";
+	              		gotoxy(30,9);
+	              		setcolor(LIGHTRED,BLACK);
+	              		cout<<cont/25;
+	              		setcolor(LIGHTGRAY,BLACK);
+	              	}
+	        }
+	
+		if(selezione=="2")
+		{
+			if(cont%30>=1)
+			{
+	              		gotoxy(30,9);
+			        cout<<" ";
+			        gotoxy(31,9);
+			        cout<<" ";
+			        gotoxy(32,9);
+			        cout<<" ";
+			        gotoxy(30,9);
+			        setcolor(LIGHTRED,BLACK);
+			        cout<<cont/30;
+			        setcolor(LIGHTGRAY,BLACK);
+	              }
+	        }
+	        
+	        if(selezione=="3")
+	        {
+	        	if(cont%40>=1)
+	        	{
+	               
+	              		gotoxy(30,9);
+	              		cout<<" ";
+	              		gotoxy(31,9);
+	              		cout<<" ";
+	              		gotoxy(32,9);
+	              		cout<<" ";
+	              		gotoxy(30,9);
+	              		setcolor(LIGHTRED,BLACK);
+	              		cout<<cont/40;
+	              		setcolor(LIGHTGRAY,BLACK);
+	        		
+	        	}
+	       	
+	        	
+	        }
+	
+		if(selezione=="4")
+		{
+			time=1000/v;
+			if(cont%time>=1)
+			{
+	              		gotoxy(30,5);
+	              		cout<<" ";
+	              		gotoxy(31,5);
+	              		cout<<" ";
+	              		gotoxy(32,5);
+	              		cout<<" ";
+	              		gotoxy(30,5);
+	              		setcolor(LIGHTRED,BLACK);
+	              		cout<<cont/time;
+	              	
+	              		if((cont%100)==1)
+	              		{
+	                        	v--;
+	                        	velocita++;
+	              			gotoxy(26,9);
+	              			setcolor(YELLOW,BLACK);
+	              			cout<<"VELOCITA'";
+	              			gotoxy(30,10);
+	              			setcolor(LIGHTRED,BLACK);
+	              			cout<<velocita;
+	                	}
+	              
+	              		setcolor(LIGHTGRAY,BLACK);
+				
+			}
+			
+		}
+		
+	}while(h==0);
+	
+	return;
+	
 }    
      
 
