@@ -925,88 +925,93 @@ void MultiPlayer(string selezione)
 {
      int start;
      char rew;
-
-do{
-     start=5;
-     system("cls");
+     do
+     {
+     	start=5;
+     	system("cls");
+     	do
+     	{
      
-do{
-     
-    gotoxy(35,3);
-    setcolor(YELLOW,BLACK);
-    cout<<"<<MULTI PLAYER>>"; 
-    gotoxy(16,7); 
-    setcolor(LIGHTBLUE,BLACK);
-    cout<<"Inserisci il numero della difficolta' di gioco\n\n";
-    gotoxy(18,10);
-    setcolor(LIGHTGREEN,BLACK);
-    cout<<"1 --> Facile\n\n";
-    gotoxy(18,12);
-    cout<<"2 --> Normale\n\n";
-    gotoxy(18,14);
-    cout<<"3 --> Difficile\n\n";
-    gotoxy(18,16);
-    cout<<"4 --> Survival\n\n";
-    gotoxy(18,18);
-    cout<<"0 --> Torna alla home\n\n";
-    setcolor(LIGHTGRAY,BLACK);
-    gotoxy(5,23);
-    cout<<"SCELTA = ";
-        setcolor(LIGHTRED,BLACK);
-    cin>>selezione;
-    setcolor(LIGHTGRAY,BLACK);
-    system("cls");
-    if(selezione=="0"){
-                  main(); ;
-                  }
+    		gotoxy(35,3);
+	    	setcolor(YELLOW,BLACK);
+	    	cout<<"<<MULTI PLAYER>>"; 
+	    	gotoxy(16,7); 
+	    	setcolor(LIGHTBLUE,BLACK);
+	    	cout<<"Inserisci il numero della difficolta' di gioco\n\n";
+	    	gotoxy(18,10);
+	    	setcolor(LIGHTGREEN,BLACK);
+	    	cout<<"1 --> Facile\n\n";
+	    	gotoxy(18,12);
+	    	cout<<"2 --> Normale\n\n";
+	    	gotoxy(18,14);
+	    	cout<<"3 --> Difficile\n\n";
+	    	gotoxy(18,16);
+	    	cout<<"4 --> Survival\n\n";
+	    	gotoxy(18,18);
+	    	cout<<"0 --> Torna alla home\n\n";
+	    	setcolor(LIGHTGRAY,BLACK);
+	    	gotoxy(5,23);
+	    	cout<<"SCELTA = ";
+        	setcolor(LIGHTRED,BLACK);
+    		cin>>selezione;
+    		setcolor(LIGHTGRAY,BLACK);
+    		system("cls");
+    		if(selezione=="0")
+    		{
+                	main(); ;
+                }
+                
+                system("cls");
+     		
+     	}while((selezione!="1")&&(selezione!="2")&&(selezione!="3")&&(selezione!="4")&&(selezione!="0"));
 
-    system("cls");
-    }while((selezione!="1")&&(selezione!="2")&&(selezione!="3")&&(selezione!="4")&&(selezione!="0"));
 ////////CONTO ALLA ROVESCIA////////
-VisualizzaCampo2();
-setcolor(LIGHTGREEN,BLACK);
-   gotoxy(26,7);
-    cout<<"START TRA";
-setcolor(YELLOW,BLACK);    
-    gotoxy(3,19);
-    cout<<"D = Muoviti a Destra";
-setcolor(LIGHTRED,BLACK);
-    gotoxy(3,21);
-    cout<<"A = Muoviti a Sinistra";
-setcolor(YELLOW,BLACK);    
-    gotoxy(43,19);
-    cout<<"---> = Muoviti a Destra";
-setcolor(LIGHTRED,BLACK);
-    gotoxy(43,21);
-    cout<<"<--- = Muoviti a Sinistra";
-    do{
-    
-    Sleep(1000);
-    gotoxy(30,8);
-    setcolor(YELLOW,BLACK);
-    cout<<start;
-    start--;
-    }while(start!=0);
-/////////////////////////
+	VisualizzaCampo2();
+	setcolor(LIGHTGREEN,BLACK);
+   	gotoxy(26,7);
+    	cout<<"START TRA";
+	setcolor(YELLOW,BLACK);    
+    	gotoxy(3,19);
+    	cout<<"D = Muoviti a Destra";
+	setcolor(LIGHTRED,BLACK);
+    	gotoxy(3,21);
+    	cout<<"A = Muoviti a Sinistra";
+	setcolor(YELLOW,BLACK);    
+    	gotoxy(43,19);
+    	cout<<"---> = Muoviti a Destra";
+	setcolor(LIGHTRED,BLACK);
+    	gotoxy(43,21);
+    	cout<<"<--- = Muoviti a Sinistra";
+    	do
+    	{
+    		Sleep(1000);
+    		gotoxy(30,8);
+    		setcolor(YELLOW,BLACK);
+    		cout<<start;
+    		start--;
+    	}while(start!=0);
 
-    setcolor(LIGHTGRAY,BLACK);
-    system("cls");
-    srand(time(NULL));   
-    //FUNZIONI//
-    VisualizzaCampo2();
-    ModMultipla(selezione);
-    //       //
-    gotoxy(1,24);
-    setcolor(LIGHTGREEN,BLACK);
-     cout<<"vuoi riprovare?(s/n)";
-     setcolor(LIGHTGRAY,BLACK);
-     cin>>rew;
-     system("cls");
-   }while((rew=='s')||(rew=='S'));
-    
- 
-return;     
-     }
+/////////////////////////
+	
+	setcolor(LIGHTGRAY,BLACK);
+    	system("cls");
+    	srand(time(NULL));   
+    	//FUNZIONI//
+    	VisualizzaCampo2();
+    	ModMultipla(selezione);
+    	//       //
+    	gotoxy(1,24);
+    	setcolor(LIGHTGREEN,BLACK);
+	 cout<<"vuoi riprovare?(s/n)";
+     	setcolor(LIGHTGRAY,BLACK);
+     	cin>>rew;
+     	system("cls");
+     	
+     }while((rew=='s')||(rew=='S'));
+     
+     return;
+	
+}
 
 
 
