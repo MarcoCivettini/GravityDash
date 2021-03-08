@@ -1,8 +1,7 @@
 # GravityDash
 
 Game -> Graviti Dash
-Autore -> Civettini Marco
-Collaboratore -> Casonato Davide
+Autore -> Civettini Marcos
 Release -> 1.0v
 Linguaggio -> C++
 
